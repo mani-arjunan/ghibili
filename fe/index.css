@@ -1,0 +1,91 @@
+body,
+html {
+  height: 100%;
+  margin: 100pt;
+  background: #141414;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.login-wrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #292929;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+#skip {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+#skip:hover {
+  border: 1px solid black;
+  background-color: grey;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+.tab.active {
+  background: #fff;
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.tab-content {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+
+.image-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.image-item img {
+  max-width: 200px;
+  display: block;
+  margin-bottom: 5px;
+}
