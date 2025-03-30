@@ -1,6 +1,5 @@
 body,
 html {
-  height: 100%;
   margin: 100pt;
   background: #141414;
   font-family: Arial, sans-serif;
@@ -88,4 +87,9 @@ button:hover {
   max-width: 200px;
   display: block;
   margin-bottom: 5px;
+}
+ 
+#log-out {
+  position: absolute;
+  top: 100pt;
 }

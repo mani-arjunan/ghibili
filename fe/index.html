@@ -6,28 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ghibili</title>
   <link href="./index.css" rel="stylesheet">
+  <script src="./db.js"></script>
 </head>
 
 <body>
-  <div id="login-wrapper" class="login-wrapper" style="display:none">
-    <div>
-      <input id="mble-number" type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{10}" required>
-    </div>
-    <div>
-      <input id="password" type="password" placeholder="Enter Password" required>
-    </div>
-    <br>
-    <button id="mble-btn" class="mble-btn" type="button">Submit</button>
+  <div>
+    <button id='log-out'>Logout</button>
   </div>
-  <div id="update-wrapper" style="display: none">
-    <div>
-      <input id="username" type="text" placeholder="Enter Your username">
-    </div>
-    <br>
-    <button id="skip" type="button">Skip</button>
-    <button id="update" class="mble-btn" type="button">Update</button>
-  </div>
-  <div id="main-section" style="display:block">
+  <div id="main-section">
     <input type="file" id="image-input" accept="image/*" />
     <button onclick="uploadImage()">Upload</button>
 
