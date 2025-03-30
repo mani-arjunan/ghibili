@@ -22,6 +22,7 @@ export const insertUser = async ({ password, mobileNumber }) => {
     const users = await knex.raw(`
       INSERT INTO users (mobile_number, password)
       VALUES ('${mobileNumber}', '${password}')
+      RETURNING *
     `)
 
     return users.rows
@@ -38,6 +39,7 @@ export const updateUser = async ({ username, mobileNumber }) => {
         UPDATE users
         SET name='${username}'
         WHERE mobile_number=${mobileNumber}
+        RETURNING *
     `)
 
     return users.rows

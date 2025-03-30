@@ -33,6 +33,9 @@ export function generateJWT(payload) {
 }
 
 export function getDataFromToken(cookies) {
+  if (!cookies['ghibili-token']) {
+    return null
+  }
   const token = JSON.parse(cookies['ghibili-token'])
 
   try {

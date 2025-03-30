@@ -1,3 +1,6 @@
 export { login } from './login.js'
 export { update } from './update.js'
 export { images } from './images.js'
+export { generateImage } from './generateimage.js'
+export { getImages } from './getimages.js'
+export { logout } from './logout.js'

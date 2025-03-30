@@ -21,12 +21,26 @@ export const update = async (req, res) => {
     }
 
     const details = getDataFromToken(req.local.cookies)
-    await updateUser({ username, mobileNumber: +details.mobileNumber })
+
+    if (!details) {
+
+      res.writeHead(401)
+      res.end(JSON.stringify({
+        status: "UNAUTHORIZED",
+        message: "Not logged in"
+      }))
+      return
+    }
+
+    const [user] = await updateUser({ username, mobileNumber: +details.mobileNumber })
 
     res.writeHead(200)
     res.end(JSON.stringify({
       status: "SUCCESS",
-      message: "Success"
+      message: {
+        name: user.name,
+        mobileNumber: user.mobile_number
+      }
     }))
     return
   } catch (e) {

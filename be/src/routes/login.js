@@ -56,7 +56,7 @@ export const login = async (req, res) => {
     const token = generateJWT({ mobileNumber })
 
     if (users.length === 0) {
-      await insertUser({
+      const [user] = await insertUser({
         mobileNumber,
         password: crypto.hash('sha1', password)
       })
@@ -64,7 +64,21 @@ export const login = async (req, res) => {
       setCookie(res, token)
       res.end(JSON.stringify({
         status: "NEW_USER",
-        message: "Require user name"
+        message: {
+          name: '',
+          mobileNumber: user.mobile_number
+        }
+      }))
+      return
+    }
+
+    const user = users[0]
+
+    if (user.password !== crypto.hash('sha1', password)) {
+      res.writeHead(401)
+      res.end(JSON.stringify({
+        status: "PASSWORD_ERR",
+        message: "Wrong Password",
       }))
       return
     }
@@ -72,7 +86,10 @@ export const login = async (req, res) => {
     setCookie(res, token)
     res.end(JSON.stringify({
       status: "SUCCESS",
-      message: "Success"
+      message: {
+        name: user.name,
+        mobileNumber: user.mobile_number
+      }
     }))
     return
   } catch (e) {
